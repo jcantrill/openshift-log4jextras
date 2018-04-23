@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd" >
+<log4j:configuration>
+	<appender name="FILE"
+		class="io.openshift.log4jextras.appender.DailyRollingFileAppender">
+		<param name="file" value="target/testfiles/test-agent.log" />
+		<param name="datePattern" value="'_'yyyy-MM-dd-HH-mm" />
+		<param name="maxBackupIndex" value="2" />
+		<param name="append" value="true" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d [%t] %p - %m%n" />
+		</layout>
+	</appender>
+	<root>
+		<priority value="info" />
+		<appender-ref ref="FILE" />
+	</root>
+</log4j:configuration>
