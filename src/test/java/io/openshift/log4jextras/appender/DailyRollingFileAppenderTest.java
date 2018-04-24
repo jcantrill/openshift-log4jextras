@@ -14,9 +14,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.openshift.log4jextras.appenders;
 
-import static org.junit.Assert.assertEquals;
+package io.openshift.log4jextras.appender;
+
+import static org.junit.Assert.assertTrue;
 
 import java.io.File;
 import java.io.FilenameFilter;
@@ -30,7 +31,7 @@ import org.junit.Test;
 public class DailyRollingFileAppenderTest {
 	
     private static org.apache.log4j.Logger log = Logger.getLogger(DailyRollingFileAppenderTest.class);
-    private static final int MINUTES = 3;
+    private static final int MINUTES = 4;
 	private File dir;
 	
     @Before
@@ -63,10 +64,10 @@ public class DailyRollingFileAppenderTest {
             
             @Override
             public boolean accept(File dir, String name) {
-                return name.startsWith("test-agent.log");
+                return name.startsWith("test-agent");
             }
         });
-        assertEquals("Exp no more then 2 backups", 3, testFiles.length);
+        assertTrue(String.format("Exp no more then 2 backups. Found: %d", testFiles.length), testFiles.length <= 3);
 	}
 
 }

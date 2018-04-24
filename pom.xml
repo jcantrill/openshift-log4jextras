@@ -21,7 +21,7 @@
 
   <groupId>io.openshift</groupId>
   <artifactId>openshift-log4jextras</artifactId>
-  <version>0.1.0</version>
+  <version>0.2.0</version>
   <name>Openshift log4j Extras</name>
 
   <inceptionYear>2018</inceptionYear>
